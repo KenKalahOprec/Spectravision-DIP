@@ -1,6 +1,6 @@
 # 🔬 SpectraVision DIP Laboratory — Digital Image Processing & Spatial Matrix Studio
 
-> **Dokumentasi resmi platform akademik dan modul komputasi matriks citra digital Putu Pasek Jade Aurestha (NIM: 2505551051), mahasiswa Teknologi Informasi Universitas Udayana angkatan 2026.**  
+> **Dokumentasi resmi platform akademik dan modul komputasi matriks citra digital Putu Pasek Jade Aurestha (NIM: 2505551051), mahasiswa Teknologi Informasi Universitas Udayana angkatan 2025.**  
 > Aplikasi desktop pemrosesan citra digital tingkat lanjut (*Digital Image Processing*), komputasi tensor spasial, dan analisis spektral waktu-nyata (*real-time*) berbasis **Python 3.14**, **Tkinter**, **OpenCV**, **NumPy**, **Scikit-Image**, dan **Matplotlib**. Dilengkapi arsitektur modular berorientasi objek (*Object-Oriented Architecture*), antarmuka bertema *Dark Slate & Peach Scientific Studio UI*, 4 operasi aritmatika matriks lengkap (Penjumlahan, Pengurangan, Perkalian, Pembagian), deteksi tepi konvolusi, *intensity & bit-plane slicing*, kurva densitas histogram spektral *dual-wave*, ekstraksi fitur tekstur GLCM Haralick, *live spatial telemetry*, serta tabel inspeksi RGB tensor $3 \times 3$ interaktif sesuai standar kurikulum PCD.
 
 ---
