@@ -164,13 +164,13 @@ SpectraVision DIP Lab memproses citra murni sebagai representasi tensor diskrit 
 1. **Penjumlahan Citra ($A + B$)**:
    $$C(x,y) = \min(A(x,y) + B(x,y), 255)$$
 2. **Alpha Blending ($\alpha A + (1-\alpha)B$)**:
-   $$C(x,y) = \operatorname{clip}(\alpha \cdot A(x,y) + (1 - \alpha) \cdot B(x,y), 0, 255)$$
+   $$C(x,y) = \text{clip}(\alpha \cdot A(x,y) + (1 - \alpha) \cdot B(x,y), 0, 255)$$
 3. **Pengurangan Terarah & Selisih Mutlak ($|A - B|$)**:
    $$C_{\text{diff}}(x,y) = |A(x,y) - B(x,y)|$$
 4. **Perkalian Ternormalisasi ($A \times B$)**:
    $$C(x,y) = \frac{A(x,y) \times B(x,y)}{255.0}$$
 5. **Rasio Spektral Pembagian ($A \div B$)**:
-   $$C(x,y) = \operatorname{clip}\left(\frac{A(x,y)}{B(x,y) + \epsilon} \times 255.0, 0, 255\right), \quad \epsilon = 1.0$$
+   $$C(x,y) = \text{clip}\left(\frac{A(x,y)}{B(x,y) + \epsilon} \times 255.0, 0, 255\right), \quad \epsilon = 1.0$$
 
 ### C. Kernel Konvolusi Filter Spasial & Grayscale
 - **Gaussian Smoothing Function**:
