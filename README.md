@@ -15,7 +15,6 @@
 - [6. Bedah Code: Pipeline Pemrosesan & Manajemen State Reaktif](#6-bedah-code-pipeline-pemrosesan--manajemen-state-reaktif)
 - [7. Panduan Screenshot UI & Representasi Visual](#7-panduan-screenshot-ui--representasi-visual)
 - [8. Mapping Komponen Antarmuka & Tata Letak UI](#8-mapping-komponen-antarmuka--tata-letak-ui)
-- [9. AI Prompt Engineering & Academic Development Log](#9-ai-prompt-engineering--academic-development-log)
 
 ---
 
@@ -285,79 +284,19 @@ def _update_rgb_table(self):
 Antarmuka mengusung palet warna *Dark Slate & Peach* (`#1E1E24`, `#2B2D42`, `#E8A87C`) dengan sudut tombol terkurvatur lembut, visualisasi *split-view*, dan panel akordeon fungsional:
 
 ### A. Viewport Utama: Mode Dual Split-View & Kontrol Aritmatika
-Representasi antarmuka saat pengguna melakukan komparasi citra asli dan pengolahan filter spasial:
+Representasi antarmuka saat pengguna melakukan komparasi citra asli dan pengolahan citra pada kanvas *split-view* (Citra Asli di sisi kiri dan Citra Hasil di sisi kanan) serta panel kontrol operasi aritmatika dan metrik spesifikasi spasial di sisi kanan:
 
-```
-+---------------------------------------------------------------------------------------------------------+
-| SPECTRAVISION DIP LAB • Jade Aurestha   [File] [Aritmatika] [Filter] [Spektral] [Slicing] [Tabel RGB]   |
-+---------------------------------------------------------------------------------------------------------+
-| [📂] | +-----------------------------------+ +-----------------------------------+ | [ Aritmatika ]      |
-| [🖼️] | | Citra Asli (RGB Input)            | | Hasil Transformasi Matriks        | | ------------------- |
-| [📊] | |                                   | |                 [🔄 Reset Orig]   | | Operasi:            |
-| [🔄] | |                                   | |                                   | | (•) Penjumlahan (+) |
-| [💾] | |             [ CITRA A ]           | |             [ CITRA HASIL ]       | | ( ) Pengurangan (-) |
-| [🔁] | |                                   | |                                   | | ( ) Perkalian   (×) |
-| [🎯] | |                                   | |                                   | | ( ) Pembagian   (÷) |
-|      | |                                   | |                                   | |                     |
-|      | +-----------------------------------+ +-----------------------------------+ | Alpha: [===o====] 0.5 |
-|      | Klik kanvas untuk inspeksi piksel   | Klik kanvas untuk inspeksi piksel   | [ Terapkan Operasi ]  |
-+---------------------------------------------------------------------------------------------------------+
-| Status: Ready | Cursor: X:  256, Y:  256 | Pixel Intensity: R: 216 G: 241 B:  23 | SpectraVision DIP Lab  |
-+---------------------------------------------------------------------------------------------------------+
-```
+![Viewport Utama Dual Split-View](assets/ui_dual_split_view.png)
 
 ### B. Viewport Mode 3-Way: Komparasi Citra A, Citra B, dan Hasil Aritmatika
-Representasi antarmuka saat mengeksekusi operasi aritmatika antar dua citra:
+Representasi antarmuka saat mengeksekusi operasi aritmatika antar dua citra (Citra A di kiri atas, Citra B di kanan atas, dan Hasil Transformasi Aritmatika Spasial di panel bawah):
 
-```
-+---------------------------------------------------------------------------------------------------------+
-| SPECTRAVISION DIP LAB • Jade Aurestha   [View: 3-Way Mode]                                              |
-+---------------------------------------------------------------------------------------------------------+
-| [📂] | +-----------------------------------+ +-----------------------------------+ | [ Kontrol Panel ]   |
-| [🖼️] | | Citra A (Matriks 1)               | | Citra B (Matriks 2)               | | Target: Antar Citra |
-| [📊] | |            [ Gambar A ]           | |           [ Pola Sintetis B ]     | | Mode: Alpha Blend   |
-| [🔄] | +-----------------------------------+ +-----------------------------------+ | Alpha: 0.70         |
-| [💾] | +-------------------------------------------------------------------------+ |                     |
-| [🔁] | | Hasil Aritmatika Spasial (A + B)                        [🔄 Reset Orig] | | [ 🔁 Ganti Citra B] |
-| [🎯] | |                       [ HASIL KOMBINASI SPASIAL ]                       | | [ 💾 Simpan Hasil ] |
-|      | +-------------------------------------------------------------------------+ |                     |
-+---------------------------------------------------------------------------------------------------------+
-| Status: Loaded Citra Kalibrasi | Cursor: X: ---, Y: --- | Pixel: R: --- G: --- B: ---                   |
-+---------------------------------------------------------------------------------------------------------+
-```
+![Viewport Mode 3-Way](assets/ui_3way_view.png)
 
 ### C. Tabel & Dialog Inspeksi Matriks RGB $3 \times 3$ (Slide 8)
-Representasi dialog modal saat menginspeksi nilai tensor numerik saluran warna:
+Representasi dialog modal ilmiah saat menginspeksi nilai tensor numerik pada 9 piksel ketetanggaan ($3 \times 3$) beserta pemisahan 4 sub-matriks saluran warna (Merah, Hijau, Biru, dan Grayscale sesuai formula Slide 8):
 
-```
-+---------------------------------------------------------------------------------------------------------+
-| 🔍 INSPEKSI MATRIKS TENSOR RGB 3×3 & GRAYSCALE — SpectraVision DIP Lab                                  |
-| Pusat Spasial: (100, 120) | Dimensi: 512×512 px | Formula: f_o(x,y) = (R + G + B) / 3                   |
-+---------------------------------------------------------------------------------------------------------+
-| [ Saluran Merah (R) ]     [ Saluran Hijau (G) ]     [ Saluran Biru (B) ]      [ Grayscale (R+G+B)/3 ]   |
-| ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐       |
-| │ 201  203  205   │       │ 224  226  228   │       │   3    5    8   │       │ 142  144  147   │       |
-| │ 202 [203] 204   │       │ 225 [226] 227   │       │   4   [5]   7   │       │ 143 [144] 146   │       |
-| │ 200  202  203   │       │ 223  225  226   │       │   2    4    6   │       │ 141  143  145   │       |
-| └─────────────────┘       └─────────────────┘       └─────────────────┘       └─────────────────┘       |
-| Mean R: 202.9             Mean G: 225.6             Mean B: 4.9               Mean Gray: 144.4          |
-+---------------------------------------------------------------------------------------------------------+
-| TABEL 9 PIKSEL KETETANGGAAN:                                                                            |
-| Posisi Spasial      Koordinat     Red (R)     Green (G)     Blue (B)     Grayscale     Kode Warna Hex       |
-| ------------------------------------------------------------------------------------------------------- |
-| TL (x-1, y-1)       (99, 119)       201          224           3            142           #c9e003           |
-| TC (x, y-1)         (100, 119)      203          226           5            144           #cbe205           |
-| TR (x+1, y-1)       (101, 119)      205          228           8            147           #cde408           |
-| ML (x-1, y)         (99, 120)       202          225           4            143           #cae104           |
-| Pusat (x, y) [C]    (100, 120)      203          226           5            144           #cbe205           |
-| MR (x+1, y)         (101, 120)      204          227           7            146           #cce307           |
-| BL (x-1, y+1)       (99, 121)       200          223           2            141           #c8df02           |
-| BC (x, y+1)         (100, 121)      202          225           4            143           #cae104           |
-| BR (x+1, y+1)       (101, 121)      203          226           6            145           #cbe206           |
-+---------------------------------------------------------------------------------------------------------+
-| [ 📋 Salin Nilai Matriks ]                                                              [ Tutup Dialog ]|
-+---------------------------------------------------------------------------------------------------------+
-```
+![Dialog Inspeksi Matriks RGB 3x3](assets/ui_dialog_rgb_table.png)
 
 ---
 
@@ -376,39 +315,6 @@ Representasi dialog modal saat menginspeksi nilai tensor numerik saluran warna:
 
 ---
 
-## 9. AI Prompt Engineering & Academic Development Log
-
-Pengembangan SpectraVision DIP Laboratory dirancang secara bertahap melalui rekayasa prompt interaktif terstruktur:
-
-```markdown
-1. Inisiasi & Transformasi Konsep:
-   "Rancang sebuah studio pengolahan citra digital berbasis Python (Tkinter, OpenCV, NumPy)
-   dengan identitas resmi 'SpectraVision DIP Laboratory by Jade Aurestha'. Terapkan UI/UX 
-   modern bertema Dark Slate & Peach (#1E1E24, #2B2D42, #E8A87C) yang tidak kaku,
-   mengutamakan kejelasan visual komparasi citra ilmiah."
-
-2. Implementasi 4 Operasi Aritmatika Citra:
-   "Tambahkan 4 operasi aritmatika matriks citra lengkap: Penjumlahan, Pengurangan, Perkalian,
-   dan Pembagian. Sediakan dukungan operasi terhadap Skalar maupun Antar-Citra (Citra A dan Citra B),
-   lengkap dengan Alpha Blending dinamis, Image Averaging, dan proteksi clamping [0, 255]."
-
-3. Perbaikan Filter Spasial & Ketat Kernel Ganjil:
-   "Perbaiki fitur Gaussian Blur dan filter konvolusi spasial agar строго menggunakan ukuran
-   kernel ganjil (1, 3, 5, ..., 31) untuk mencegah crash konvolusi, serta integrasikan Canny
-   Edge Detection dengan ambang histeresis ganda dinamis."
-
-4. Tombol Pintas & Reset Citra Original:
-   "Sediakan fitur Reset ke Citra Asli (Original) baik melalui tombol UI maupun pintasan keyboard Ctrl+R
-   yang mengembalikan citra hasil serta seluruh slider parameter ke kondisi netral awal."
-
-5. Integrasi Tabel & Matriks Tensor RGB (Slide 8):
-   "Tambahkan fitur inspeksi Tabel Matriks RGB spasial sesuai materi kurikulum PCD (Slide 8):
-   ekstraksi 9 piksel tetangga 3x3, hitung nilai Grayscale f_o = (R+G+B)/3, sediakan live click
-   pada kanvas, swatch warna real-time, dialog 4 sub-matriks numerik, dan fungsi salin clipboard."
-```
-
----
-
 <div align="center">
 
 ### SPECTRAVISION DIP LABORATORY
@@ -420,7 +326,7 @@ Mata Kuliah Pengolahan Citra Digital (PCD)
 **Putu Pasek Jade Aurestha**  
 NIM: **2505551051**  
 *Program Studi Teknologi Informasi, Fakultas Teknik, Universitas Udayana*  
-Angkatan 2025
+Angkatan 2026
 
 © 2026 Putu Pasek Jade Aurestha. All Rights Reserved.
 
