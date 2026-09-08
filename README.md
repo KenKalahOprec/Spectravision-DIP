@@ -326,7 +326,7 @@ Mata Kuliah Pengolahan Citra Digital (PCD)
 **Putu Pasek Jade Aurestha**  
 NIM: **2505551051**  
 *Program Studi Teknologi Informasi, Fakultas Teknik, Universitas Udayana*  
-Angkatan 2026
+Angkatan 2025
 
 © 2026 Putu Pasek Jade Aurestha. All Rights Reserved.
 
